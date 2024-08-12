@@ -20,7 +20,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
     <header
       class="w-full max-w-screen-xl mx-auto py-6 md:py-10 px-6 flex justify-center"
     >
-      <a href="/">
+      <a href="/" aria-label="Logo de Shopify Meetup 2024">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100"
@@ -110,9 +110,9 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
         </div> -->
       </div>
       <div class="form-wrap w-full md:max-w-lg">
-        <h4 class="my-4 text-lg font-semibold">
+        <h2 class="my-4 text-lg font-semibold">
           No te pierdas ninguna actualización
-        </h4>
+        </h2>
         <Alert id="missing" className="mb-4" variant="destructive">
           <CircleX className="h-[24px] w-[24px]" />
           <AlertDescription> Introduce un correo </AlertDescription>
@@ -145,16 +145,24 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
       class="w-full max-w-full rounded-lg lg:rounded-2xl shadow-2xl shadow-[#6ed86638] aspect-video h-fit"
       id="8IO2kCdlVsA"
       posterQuality="max"
+      aria-label="Video del Shopify Meetup 2024"
     />
     <div class="text-center">
-      <h4 class="mb-4 text-lg font-semibold">
+      <h2 class="mb-4 text-lg font-semibold">
         Recuerda seguirnos en nuestras redes
-      </h4>
+      </h2>
       <div class="flex items-center justify-center gap-4">
-        <a href="https://instagram.com/simplifyecommerce" target="_blank">
+        <a
+          href="https://instagram.com/simplifyecommerce"
+          target="_blank"
+          aria-label="Instagram"
+        >
           <Instagram className="text-accent" />
         </a>
-        <a href="https://linkedin.com/company/simplifyecommerce" target="_blank"
+        <a
+          href="https://linkedin.com/company/simplifyecommerce"
+          target="_blank"
+          aria-label="LinkedIn"
           ><Linkedin className="text-accent" />
         </a>
       </div>

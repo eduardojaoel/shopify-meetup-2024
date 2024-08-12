@@ -1,0 +1,61 @@
+---
+
+---
+
+<div id="counter" class="counter text-xl font-normal text-muted-foreground">
+  000d 00h 00m 00s
+</div>
+
+<style>
+  .counter {
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 1s ease,
+      visibility 1s ease;
+  }
+  .counter.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
+
+<script>
+  // Establece la fecha y hora objetivo
+  const fechaObjetivo = new Date("2024-10-10T09:00:00").getTime();
+
+  // Variable para saber si es la primera actualización
+  let esPrimeraActualizacion = true;
+
+  // Actualiza el counter cada segundo
+  const intervalo = setInterval(function () {
+    const ahora = new Date().getTime();
+    const tiempoRestante = fechaObjetivo - ahora;
+
+    const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+    const horas = Math.floor(
+      (tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutos = Math.floor(
+      (tiempoRestante % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+    const counterElement = document.getElementById("counter");
+
+    // Si es la primera actualización, agrega la clase
+    if (esPrimeraActualizacion) {
+      counterElement!.classList.add("visible");
+      esPrimeraActualizacion = false; // Asegura que esto solo ocurra una vez
+    }
+
+    // Muestra el resultado en el elemento con id "counter"
+    counterElement!.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+
+    // Si el counter llega a cero
+    if (tiempoRestante < 0) {
+      clearInterval(intervalo);
+      counterElement!.innerHTML = "¡Tiempo finalizado!";
+    }
+  }, 1000);
+</script>
